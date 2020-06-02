@@ -91,11 +91,13 @@
 
     })
 
+    var mess_freeze = { message: 'Привет qqq!' }
+
+    // Object.freeze(mess_freeze)
+
     var app5 = new Vue( {
       el: '#app-5',
-      data: {
-        message: 'Привет qqq!'
-      },
+      data: mess_freeze,
       methods: {
         reverseMessage: function () {
           this.message = this.message.split('').reverse().join('')
@@ -116,6 +118,8 @@
       template: '<li>{{ todo.text }}</li>'
     })
 
+    var data = { a: 1};
+
     var app7 = new Vue( {
               el: '#app-7',
               data: {
@@ -127,6 +131,14 @@
               }
             }
     )
+
+    // var app8 = new Vue( {
+    //           el: '#app-8',
+    //           data: data
+    //         }
+    // )
+
+    console.log("ssssss: " + (app7.$el === document.getElementById('#app-7')) );
 
   </script>
 </body>
