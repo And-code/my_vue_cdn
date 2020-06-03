@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+  <title>My first Vue app</title>
+<!--  <script src="https://unpkg.com/vue"></script>-->
+
+  <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <div id="app-2">
+    <span v-bind:[title_var]="message">
+      Наведи на меня курсор на пару секунд,
+    чтобы увидеть динамически связанное значение title!
+    </span>
+
+    <span :[title_var]="message">
+      Наведи на меня курсор на пару секунд,
+    чтобы увидеть динамически связанное значение title (сокращенный синтаксис)!
+    </span>
+  </div>
+
+  <div id="app-3">
+    <span v-if="seen">
+      Меня видно
+    </span>
+  </div>
+
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in todos">
+          {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <p>Computed field: {{ reverseMessageComp }}</p>
+    <p>Computed field (setter): {{ reverseMessageComp2 = 'Переверни' }}</p>
+    <button v-on:click="reverseMessage">Перевернуть изображение</button>
+    <button @click="reverseMessage">Перевернуть изображение(сокращенный синтаксис)</button>
+  </div>
+
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+  <div id="app-7">
+    <ol>
+      <todo-item
+        v-for="item in itemsList"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      ></todo-item>
+    </ol>
+
+    <p>Двойные фигурные скобки {{ qqq }}</p>
+    <p>Двойные фигурные скобки v-html: <span v-html="qqq"></span></p>
+
+  </div>
+
+
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+
+    })
+
+    var app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message: 'Вы загрузили эту страницу: ' + new Date().toLocaleString(),
+        title_var: 'title'
+      }
+
+    })
+
+    var app3 = new Vue({
+      el: '#app-3',
+      data: {
+        seen: true
+      }
+
+    })
+
+    var app4 = new Vue({
+      el: '#app-4',
+      data: {
+        todos: [
+          { text: 'Изучить JavaScript'},
+          { text: 'Изучить Vue'},
+          { text: 'Изучить PHP'}
+        ]
+      }
+
+    })
+
+    var mess_freeze = { message: 'Привет qqq!' }
+
+    // Object.freeze(mess_freeze)
+
+    var app5 = new Vue( {
+      el: '#app-5',
+      data: mess_freeze,
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      },
+      computed: {
+        // геттер вычисляемого значения
+        reverseMessageComp: function () {
+          return this.message.split('').reverse().join('')
+        },
+        // геттер вычисляемого значения
+        reverseMessageComp2: {
+          get: function () {
+              return this.message.split('').reverse().join('')
+          },
+          // сеттер
+          set: function (newValue) {
+            this.message = newValue + ' setter'
+          }
+        }
+      }
+    })
+
+    var app6 = new Vue( {
+              el: '#app-6',
+              data: {
+                message: 'Message in input field!'
+              }
+            }
+    )
+
+    Vue.component('todo-item', {
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    })
+
+    var data = { a: 1};
+
+    var app7 = new Vue( {
+              el: '#app-7',
+              data: {
+                itemsList: [
+                  { id: 0, text: 'Овощи'},
+                  { id: 1, text: 'Сыр'},
+                  { id: 2, text: 'Ветчина'}
+                ],
+                qqq: 'fff'
+              }
+            }
+    )
+
+    // var app8 = new Vue( {
+    //           el: '#app-8',
+    //           data: data
+    //         }
+    // )
+
+    console.log("ssssss: " + (app7.$el === document.getElementById('#app-7')) );
+
+  </script>
+</body>
+</html>
