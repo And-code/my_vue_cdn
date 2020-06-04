@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+  <title>My first Vue app</title>
+<!--  <script src="https://unpkg.com/vue"></script>-->
+
+  <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+  <button-counter></button-counter>
+
+  <div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <blog-post
+              v-for="post in posts"
+              v-bind:key="post.id"
+              v-bind:post="post"
+              v-on:enlarge-text="postFontSize += $event"
+      >Данные для слота</blog-post>
+    </div>
+  </div>
+
+
+
+</div>
+
+  <script>
+
+    Vue.component('button-counter', {
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      template: '' +
+              '<div>' +
+              '<button v-on:click="count++">Счётчик кликов — {{ count }}</button>' +
+              '<p>Содержимое</p>' +
+              '</div>'
+    })
+
+    Vue.component('blog-post', {
+      props: ['post', 'postFontSize'],
+
+      template: '' +
+              '<div class="blog-post">' +
+              '<hr>' +
+              '<h3>{{ post.title }}</h3>' +
+              '<button v-on:click="$emit(\'enlarge-text\', 0.1)">' +
+                'Увеличить размер текста' +
+              '</button>' +
+              '<div v-html="post.content"></div>' +
+              '<slot></slot>' +
+              '</div>'
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        posts: [
+          { id: 1, title: 'title1', content: '<p>content1</p>'},
+          { id: 2, title: 'title2', content: '<p>content2</p>'},
+          { id: 3, title: 'title3', content: '<p>content3</p>'},
+        ],
+        postFontSize: 1
+      },
+      methods: {
+
+      }
+    })
+
+
+
+
+  </script>
+</body>
+</html>

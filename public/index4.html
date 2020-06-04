@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <title>My first Vue app</title>
+<!--  <script src="https://unpkg.com/vue"></script>-->
+
+  <!-- версия для разработки, отображает полезные предупреждения в консоли -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+  <button v-on:click="counter += 1">+1</button>
+  <button v-on:click="hello">method</button>
+  <p>Кнопка была нажата {{ counter }} раз</p>
+  <hr>
+  <input type="checkbox" id="checked" v-model="checked">
+  <label for="checked">{{ checked }}</label>
+  <hr>
+
+  <input type="checkbox" id="john" value="Джон" v-model="checkedNames">
+  <label for="john">Джон</label>
+
+  <input type="checkbox" id="jack" value="Джек" v-model="checkedNames">
+  <label for="jack">Джек</label>
+
+  <input type="checkbox" id="and" value="Анд" v-model="checkedNames">
+  <label for="and">Анд</label>
+  <p>Отмеченные имена: {{ checkedNames }}</p>
+
+  <hr>
+
+  <select v-model="selected">
+      <option v-for="option in options" v-bind:value="option.value">
+        {{ option.text }}
+      </option>
+  </select>
+  <p>Выбранная опция: {{ selected }}</p>
+
+
+</div>
+
+  <script>
+
+    new Vue({
+      el: '#app',
+      data: {
+        counter: 0,
+        checked: false,
+        checkedNames: [],
+        selected: 'A',
+        options: [
+          { text: "Option1", value: 'A'},
+          { text: "Option2", value: 'B'},
+          { text: "Option3", value: 'C'}
+        ]
+      },
+      methods: {
+        hello: function (event) {
+          if (event) {
+            console.log(event)
+          }
+
+        }
+      }
+    })
+  </script>
+</body>
+</html>

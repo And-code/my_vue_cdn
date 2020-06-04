@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c574525-dcc4-48ae-bfe2-b52aae59319e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index5.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -81,6 +82,7 @@
       <workItem from="1591186932965" duration="4671000" />
       <workItem from="1591211267352" duration="540000" />
       <workItem from="1591212082968" duration="1042000" />
+      <workItem from="1591252552285" duration="8259000" />
     </task>
     <servers />
   </component>
@@ -124,11 +126,11 @@
     </state>
     <state x="178" y="30" width="910" height="730" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1591125795044" />
     <state x="350" y="46" width="1007" height="732" key="SettingsEditor/0.24.1440.852@0.24.1440.852" timestamp="1591166028980" />
-    <state x="355" y="227" key="com.intellij.ide.util.TipDialog" timestamp="1591212137301">
-      <screen x="0" y="0" width="1280" height="760" />
+    <state x="399" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1591252552235">
+      <screen x="0" y="24" width="1440" height="852" />
     </state>
     <state x="355" y="227" key="com.intellij.ide.util.TipDialog/0.0.1280.760@0.0.1280.760" timestamp="1591212137301" />
-    <state x="399" y="279" key="com.intellij.ide.util.TipDialog/0.24.1440.852@0.24.1440.852" timestamp="1591186931291" />
+    <state x="399" y="279" key="com.intellij.ide.util.TipDialog/0.24.1440.852@0.24.1440.852" timestamp="1591252552235" />
     <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1591211476460">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
